@@ -55,6 +55,8 @@ export function openWhatsApp(message, eventContext = {}) {
         send_to: GA4_MEASUREMENT_ID,
         source: eventContext.source ?? 'booking_flow',
         experience: eventContext.experience ?? 'not_specified',
+        utm_source: sessionStorage.getItem('utm_source') ?? 'direct',
+        utm_campaign: sessionStorage.getItem('utm_campaign') ?? '',
       })
     }
 

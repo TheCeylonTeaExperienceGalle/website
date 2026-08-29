@@ -68,6 +68,23 @@ export default function App() {
   }
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('utm_source') === 'sms') {
+      sessionStorage.setItem('utm_source', 'sms');
+      sessionStorage.setItem('utm_campaign', params.get('utm_campaign') ?? '');
+      try {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'sms_landing', {
+            campaign: params.get('utm_campaign') ?? 'unknown',
+          });
+        }
+      } catch (e) {
+        console.warn('[TCTE] sms_landing tracking error:', e);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
     const handleHashChange = () => {
       setCurrentPage(getPageFromHash())
       window.scrollTo({ top: 0, behavior: 'smooth' })
