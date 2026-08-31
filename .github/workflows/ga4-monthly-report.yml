@@ -1,0 +1,54 @@
+name: GA4 Monthly Report
+
+on:
+  schedule:
+    # 09:00 Asia/Colombo (UTC+5:30) on the 1st of each month
+    - cron: '30 3 1 * *'
+  workflow_dispatch:
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Write GA4 service account key
+        env:
+          GA4_SERVICE_ACCOUNT_JSON: ${{ secrets.GA4_SERVICE_ACCOUNT_JSON }}
+        run: |
+          mkdir -p secrets
+          printf '%s' "$GA4_SERVICE_ACCOUNT_JSON" > secrets/ga4-reporter.json
+
+      - name: Generate and email report
+        env:
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ github.workspace }}/secrets/ga4-reporter.json
+          REPORT_TO: ${{ secrets.REPORT_TO }}
+          REPORT_CC: ${{ secrets.REPORT_CC }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          SMTP_FROM: ${{ secrets.SMTP_FROM }}
+        run: npm run report:monthly
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ga4-report-${{ github.run_id }}
+          path: output/reports/*.html
+          if-no-files-found: ignore
+          retention-days: 90
