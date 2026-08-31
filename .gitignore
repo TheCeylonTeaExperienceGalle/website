@@ -12,6 +12,11 @@ dist
 dist-ssr
 source-assets/
 *.local
+.env
+.env.*
+!.env.example
+secrets/
+output/reports/
 
 # Editor directories and files
 .vscode/*
