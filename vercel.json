@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/s/:campaign",
+      "destination": "/?utm_source=sms&utm_medium=sms&utm_campaign=:campaign",
+      "permanent": false
+    },
+    {
+      "source": "/s/:campaign/",
+      "destination": "/?utm_source=sms&utm_medium=sms&utm_campaign=:campaign",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/partners",

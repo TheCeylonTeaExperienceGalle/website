@@ -15,6 +15,8 @@ function serveBlogEntryHtml() {
       request.url = '/blog/index.html'
     } else if (pathname === blogArticleRoute) {
       request.url = `${blogArticleRoute}/index.html`
+    } else if (/^\/s\/[^/]+\/?$/.test(pathname)) {
+      request.url = '/index.html'
     }
 
     next()
