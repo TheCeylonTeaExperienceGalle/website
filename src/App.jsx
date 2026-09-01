@@ -35,6 +35,15 @@ function getPageFromHash() {
   return validPages.includes(hash) ? hash : 'home'
 }
 
+function getSmsCampaignRedirect() {
+  const pathname = window.location.pathname.replace(/\/+$/, '') || '/'
+  const match = pathname.match(/^\/s\/([^/]+)$/)
+  if (!match) return null
+
+  const campaign = decodeURIComponent(match[1])
+  return `/?utm_source=sms&utm_medium=sms&utm_campaign=${encodeURIComponent(campaign)}`
+}
+
 function getDirectRoute() {
   const pathname = window.location.pathname.replace(/\/+$/, '') || '/'
 
@@ -68,6 +77,12 @@ export default function App() {
   }
 
   useEffect(() => {
+    const smsRedirect = getSmsCampaignRedirect()
+    if (smsRedirect) {
+      window.location.replace(smsRedirect)
+      return
+    }
+
     const params = new URLSearchParams(window.location.search);
     if (params.get('utm_source') === 'sms') {
       sessionStorage.setItem('utm_source', 'sms');
