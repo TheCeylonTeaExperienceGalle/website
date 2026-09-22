@@ -8,10 +8,10 @@ import { WhatsAppInquiryModal } from '../components/WhatsAppModal'
 import ArticleBlocks from '../components/blog/ArticleBlocks'
 import ArticleShare from '../components/blog/ArticleShare'
 import ResponsiveImage from '../components/blog/ResponsiveImage'
-import { getBlogPostBySlug } from '../data/blogPosts'
+import { getBlogPostByPath } from '../data/blogPosts'
+import BlogNotFoundPage from './BlogNotFoundPage'
 import '../styles/journal.css'
 
-const ARTICLE_SLUG = 'why-you-should-visit-the-ceylon-tea-experience-in-galle'
 const WHATSAPP_AVOID_SELECTORS = [
   '.journal-location-note',
   '.journal-article-cta',
@@ -29,8 +29,8 @@ function trackCta(action) {
   }
 }
 
-export default function BlogArticlePage({ navigate }) {
-  const post = getBlogPostBySlug(ARTICLE_SLUG)
+export default function BlogArticlePage({ navigate, post: postProp }) {
+  const post = postProp ?? getBlogPostByPath(window.location.pathname)
   const [bookingModalOpen, setBookingModalOpen] = useState(false)
   const openBookingModal = useCallback(() => setBookingModalOpen(true), [])
   const closeBookingModal = useCallback(() => setBookingModalOpen(false), [])
@@ -40,7 +40,11 @@ export default function BlogArticlePage({ navigate }) {
 
     const target = document.getElementById(window.location.hash.slice(1))
     target?.scrollIntoView({ behavior: 'auto', block: 'start' })
-  }, [])
+  }, [post?.slug])
+
+  if (!post) {
+    return <BlogNotFoundPage navigate={navigate} />
+  }
 
   const handleTocClick = (event, id) => {
     event.preventDefault()
@@ -72,7 +76,7 @@ export default function BlogArticlePage({ navigate }) {
                   <li aria-hidden="true">/</li>
                   <li><a href="/blog">Journal</a></li>
                   <li aria-hidden="true">/</li>
-                  <li aria-current="page">Galle</li>
+                  <li aria-current="page">{post.location}</li>
                 </ol>
               </nav>
 
@@ -98,9 +102,13 @@ export default function BlogArticlePage({ navigate }) {
                 image={post.heroImage}
                 loading="eager"
                 fetchPriority="high"
-                className="journal-hero-image__media"
+                className={`journal-hero-image__media${
+                  post.heroImageFit === 'contain' ? ' journal-hero-image__media--contain' : ''
+                }`}
               />
-              <figcaption>Guests discovering the pleasure of freshly brewed Ceylon Tea in Galle.</figcaption>
+              <figcaption>
+                {post.heroCaption ?? 'Guests discovering the pleasure of freshly brewed Ceylon Tea in Galle.'}
+              </figcaption>
             </figure>
           </header>
 

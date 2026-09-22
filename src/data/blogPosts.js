@@ -51,7 +51,7 @@ export const blogImages = {
   },
 }
 
-const article = {
+const visitGalleArticle = {
   slug: 'why-you-should-visit-the-ceylon-tea-experience-in-galle',
   path: '/blog/why-you-should-visit-the-ceylon-tea-experience-in-galle',
   title: 'Why You Should Visit The Ceylon Tea Experience in Galle, Sri Lanka',
@@ -303,6 +303,268 @@ const article = {
   ],
 }
 
+const thingsToDoInGalleArticle = {
+  slug: 'things-to-do-in-galle-sri-lanka-ceylon-tea-experience',
+  path: '/blog/things-to-do-in-galle-sri-lanka-ceylon-tea-experience',
+  title: 'Things to Do in Galle, Sri Lanka: A Ceylon Tea Tour Near Galle Fort',
+  seoTitle: 'Things to Do in Galle | Ceylon Tea Tour & Tea Experience Near Fort',
+  description:
+    'Looking for things to do in Galle, Sri Lanka? Enjoy a Ceylon tea experience and tea tour near Galle Fort — tea estate walking, tea processing, tea tasting, tea blending, fresh Ceylon tea and a souvenir shop.',
+  excerpt:
+    'Add a Ceylon tea experience and tea tour to your Galle itinerary — tea estate walking, processing, tasting, blending and more, just minutes from Galle Fort.',
+  deck:
+    'Combine history, culture and Ceylon tea in one visit. From tea estate walking and tea processing to tea tasting, tea blending, fresh Ceylon tea and the souvenir shop — all steps from Galle Fort.',
+  category: 'Travel Guide',
+  location: 'Galle',
+  tags: [
+    'Things to do in Galle',
+    'Ceylon Tea',
+    'Ceylon tea',
+    'Tea tour',
+    'Tea factory tour',
+    'Tea experience',
+    'Tea estate walking',
+    'Tea processing',
+    'Souvenir shop',
+    'Tea blending',
+    'Fresh Ceylon tea',
+    'Tea tasting',
+    'Galle Fort',
+    'Sri Lanka travel',
+  ],
+  datePublished: '2026-09-22',
+  dateModified: '2026-09-22',
+  displayDate: '22 September 2026',
+  author: 'The Ceylon Tea Experience',
+  featuredImage: blogImages.overview,
+  heroImage: blogImages.overview,
+  heroImageFit: 'contain',
+  socialImage: `${imageBase}/tcte-visit-galle-og.jpg`,
+  socialImageAlt: blogImages.overview.alt,
+  heroCaption:
+    'Tea estate walking, tea processing, tea blending, tea tasting, fresh Ceylon tea and the souvenir shop — a full Ceylon tea experience near Galle Fort.',
+  intro: [
+    {
+      type: 'paragraph',
+      text: 'If you’re searching for things to do in Galle, The Ceylon Tea Experience is an easy addition to your itinerary.',
+    },
+    {
+      type: 'paragraph',
+      text: 'The experience is located approximately 300 metres from Galle Fort, one of Sri Lanka’s most iconic heritage destinations.',
+    },
+    {
+      type: 'paragraph',
+      text: 'That means you can combine history, culture, food and a hands-on Ceylon tea experience in the same visit — without committing a full day to a distant tea factory tour.',
+    },
+    {
+      type: 'paragraph',
+      text: 'In one place you can explore tea estate walking, tea processing, tea tasting, tea blending, fresh Ceylon tea and a souvenir shop — a complete tea tour designed for travellers in Galle.',
+    },
+  ],
+  sections: [
+    {
+      id: 'things-to-do-in-galle',
+      heading: 'Things to Do in Galle, Sri Lanka',
+      blocks: [
+        {
+          type: 'rhythm',
+          lines: [
+            'Spend the morning exploring the Fort.',
+            'Discover its historic streets and architecture.',
+            'Enjoy the atmosphere of Galle.',
+            'Then step into a Ceylon tea tour.',
+          ],
+        },
+        {
+          type: 'paragraph',
+          text: 'Learn how one of Sri Lanka’s most famous products is made — without needing to spend an entire day travelling to a tea plantation for a traditional tea factory tour.',
+        },
+        {
+          type: 'paragraph',
+          segments: [
+            { text: 'It is a simple way to experience a different side of Sri Lankan culture while staying close to ' },
+            { text: 'Galle Fort', href: '/#about' },
+            { text: ' and the Southern Coast.' },
+          ],
+        },
+        {
+          type: 'image',
+          image: blogImages.guestsAndTeam,
+          caption: 'A warm welcome awaits guests exploring Galle beyond the Fort walls.',
+          layout: 'portrait',
+        },
+      ],
+    },
+    {
+      id: 'perfect-for-travellers',
+      heading: 'Perfect for Tourists, Families, Couples and Tea Lovers',
+      blocks: [
+        {
+          type: 'paragraph',
+          text: 'You don’t have to be a serious tea enthusiast to enjoy The Ceylon Tea Experience.',
+        },
+        {
+          type: 'paragraph',
+          text: 'The interactive tea experience format makes it suitable for travellers who simply want to do something different while visiting Galle — including those looking for a memorable tea tour on the Southern Coast.',
+        },
+        { type: 'paragraph', text: 'It can be a memorable activity for:' },
+        {
+          type: 'list',
+          items: [
+            'International travellers looking to discover an authentic part of Sri Lankan culture',
+            'Couples searching for a unique experience to share during their Sri Lanka holiday',
+            'Families looking for an educational activity that is also hands-on and fun',
+            'Tea lovers who want to understand more about Ceylon tea',
+            'Locals who want to rediscover one of Sri Lanka’s most famous national products from a different perspective',
+          ],
+        },
+        {
+          type: 'image',
+          image: blogImages.tastingGuests,
+          caption: 'An activity that works for curious travellers, couples, families and tea lovers alike.',
+          layout: 'breakout',
+        },
+      ],
+    },
+    {
+      id: 'not-an-ordinary-tea-factory-tour',
+      heading: 'Not Your Ordinary Tea Factory Tour — Live the Experience',
+      blocks: [
+        {
+          type: 'paragraph',
+          text: 'Traditional tea factory tours have their own charm, but The Ceylon Tea Experience offers a different concept.',
+        },
+        {
+          type: 'paragraph',
+          text: 'Instead of simply observing the production process on a standard tea factory tour, the visitor becomes part of it — from tea estate walking and tea processing through to tea tasting and tea blending.',
+        },
+        { type: 'paragraph', text: 'The focus is on interaction.' },
+        {
+          type: 'list',
+          items: [
+            'Tea estate walking',
+            'Tea processing',
+            'Tea tasting',
+            'Tea blending',
+            'Fresh Ceylon tea',
+            'Souvenir shop',
+          ],
+        },
+        {
+          type: 'rhythm',
+          lines: [
+            'You learn by doing.',
+            'You taste what you create.',
+            'You discover the differences between Ceylon teas.',
+            'And you get the opportunity to personalise your own blend.',
+          ],
+        },
+        {
+          type: 'paragraph',
+          segments: [
+            { text: 'It is essentially a modern interpretation of Sri Lanka’s tea heritage — bringing together education, craftsmanship, tasting and creativity in one interactive ' },
+            { text: 'tea experience', href: '/#services' },
+            { text: ' and tea tour.' },
+          ],
+        },
+        {
+          type: 'paragraph',
+          text: 'Before you leave, the souvenir shop lets you take fresh Ceylon tea and your own creations home — a lasting reminder of your Galle tea experience.',
+        },
+        {
+          type: 'image',
+          image: blogImages.processingOne,
+          caption: 'Guests take part in the process rather than watching from the sidelines on a typical tea factory tour.',
+          layout: 'standard',
+        },
+      ],
+    },
+    {
+      id: 'why-add-to-your-itinerary',
+      heading: 'Why Add The Ceylon Tea Experience to Your Sri Lanka Itinerary?',
+      blocks: [
+        {
+          type: 'paragraph',
+          text: 'Sri Lanka offers countless experiences, but some of the most memorable are the ones that allow you to participate rather than simply observe.',
+        },
+        {
+          type: 'paragraph',
+          text: 'The Ceylon Tea Experience is one of them — a tea tour designed around doing, tasting and creating.',
+        },
+        {
+          type: 'list',
+          items: [
+            'You don’t need to travel deep into the mountains',
+            'You don’t need to spend an entire day on a distant tea factory tour',
+            'You don’t need to be a tea expert',
+          ],
+        },
+        {
+          type: 'paragraph',
+          text: 'Simply come to Galle and discover the story behind Ceylon tea through an interactive tea experience that lets you become part of the journey.',
+        },
+        {
+          type: 'paragraph',
+          text: 'From the tea leaf to the finished cup, you get to see, feel, smell and taste the process. And perhaps most importantly, you get to create something of your own.',
+        },
+        {
+          type: 'image',
+          image: blogImages.processingTwo,
+          caption: 'From leaf to cup, the Ceylon tea journey becomes something you take part in.',
+          layout: 'breakout',
+        },
+      ],
+    },
+    {
+      id: 'story-behind-every-cup',
+      heading: 'Experience the Story Behind Every Cup',
+      blocks: [
+        {
+          type: 'paragraph',
+          text: 'Every cup of Ceylon tea has a story.',
+        },
+        {
+          type: 'rhythm',
+          lines: [
+            'A story of Sri Lanka’s land.',
+            'Its people.',
+            'Its craftsmanship.',
+            'Its history.',
+            'And generations of knowledge.',
+          ],
+        },
+        {
+          type: 'paragraph',
+          text: 'At The Ceylon Tea Experience in Galle, that story comes to life through a hands-on tea experience — not just another tea factory tour.',
+        },
+        {
+          type: 'paragraph',
+          text: 'So, if you’re planning a trip to Sri Lanka and looking for unique things to do in Galle, don’t simply drink Ceylon tea.',
+        },
+        {
+          type: 'quote',
+          lines: ['Come and experience it.', 'Join a tea tour.', 'Learn how it is made.', 'Taste the difference.', 'Create your own blend.'],
+          attribution: 'The Ceylon Tea Experience',
+        },
+        {
+          type: 'paragraph',
+          text: 'And take a little piece of your Sri Lankan tea journey home with you.',
+        },
+        {
+          type: 'paragraph',
+          text: 'The Ceylon Tea Experience — Don’t Just Drink Ceylon Tea. Experience It.',
+        },
+        {
+          type: 'image',
+          image: blogImages.enjoyingTea,
+          caption: 'Every cup of Ceylon tea carries a story of land, people and craftsmanship.',
+          layout: 'standard',
+        },
+      ],
+    },
+  ],
+}
+
 function blockText(block) {
   if (block.text) return block.text
   if (block.segments) return block.segments.map((segment) => segment.text).join(' ')
@@ -324,8 +586,22 @@ export function calculateReadingTime(post) {
   return Math.max(1, Math.ceil(wordCount / 220))
 }
 
-export const blogPosts = [{ ...article, readingTime: calculateReadingTime(article) }]
+const articles = [thingsToDoInGalleArticle, visitGalleArticle]
+
+export const blogPosts = articles.map((article) => ({
+  ...article,
+  readingTime: calculateReadingTime(article),
+}))
 
 export function getBlogPostBySlug(slug) {
   return blogPosts.find((post) => post.slug === slug)
+}
+
+export function getBlogPostByPath(pathname) {
+  const normalized = pathname.replace(/\/+$/, '') || '/'
+  return blogPosts.find((post) => post.path === normalized)
+}
+
+export function isBlogArticlePath(pathname) {
+  return Boolean(getBlogPostByPath(pathname))
 }
