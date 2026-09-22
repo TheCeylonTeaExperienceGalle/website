@@ -29,6 +29,14 @@
       "destination": "/blog/index.html"
     },
     {
+      "source": "/blog/things-to-do-in-galle-sri-lanka-ceylon-tea-experience",
+      "destination": "/blog/things-to-do-in-galle-sri-lanka-ceylon-tea-experience/index.html"
+    },
+    {
+      "source": "/blog/things-to-do-in-galle-sri-lanka-ceylon-tea-experience/",
+      "destination": "/blog/things-to-do-in-galle-sri-lanka-ceylon-tea-experience/index.html"
+    },
+    {
       "source": "/blog/why-you-should-visit-the-ceylon-tea-experience-in-galle",
       "destination": "/blog/why-you-should-visit-the-ceylon-tea-experience-in-galle/index.html"
     },

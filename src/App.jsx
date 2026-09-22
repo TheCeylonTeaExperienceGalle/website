@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useState } from 'react'
 import HomePage from './pages/HomePage'
 import Loading from './components/Loading'
 import PageMetadata from './components/PageMetadata'
+import { getBlogPostByPath, isBlogArticlePath } from './data/blogPosts'
 import './App.css'
 
 const AboutPage = lazy(() => import('./pages/AboutPage'))
@@ -16,7 +17,6 @@ const BlogIndexPage = lazy(() => import('./pages/BlogIndexPage'))
 const BlogArticlePage = lazy(() => import('./pages/BlogArticlePage'))
 const BlogNotFoundPage = lazy(() => import('./pages/BlogNotFoundPage'))
 
-const articlePath = '/blog/why-you-should-visit-the-ceylon-tea-experience-in-galle'
 const validPages = ['home', 'about', 'services', 'gallery', 'contact', 'privacy', 'refund', 'terms']
 
 const publicPages = {
@@ -49,7 +49,7 @@ function getDirectRoute() {
 
   if (pathname === '/partners') return 'partners'
   if (pathname === '/blog') return 'blog'
-  if (pathname === articlePath) return 'blogArticle'
+  if (isBlogArticlePath(pathname)) return 'blogArticle'
   if (pathname.startsWith('/blog/')) return 'blogNotFound'
   return null
 }
@@ -57,6 +57,7 @@ function getDirectRoute() {
 export default function App() {
   const [currentPage, setCurrentPage] = useState(getPageFromHash)
   const [directRoute, setDirectRoute] = useState(getDirectRoute)
+  const blogPost = getBlogPostByPath(window.location.pathname)
 
   const navigate = (page) => {
     if (page === 'blog') {
@@ -138,7 +139,7 @@ export default function App() {
   if (directRoute === 'blogArticle') {
     return (
       <Suspense fallback={<Loading />}>
-        <BlogArticlePage navigate={navigate} />
+        <BlogArticlePage navigate={navigate} post={blogPost} />
       </Suspense>
     )
   }

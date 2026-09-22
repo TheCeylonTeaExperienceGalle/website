@@ -5,7 +5,10 @@ import babel from '@rolldown/plugin-babel'
 import { fileURLToPath } from 'node:url'
 
 const rootPath = fileURLToPath(new URL('.', import.meta.url))
-const blogArticleRoute = '/blog/why-you-should-visit-the-ceylon-tea-experience-in-galle'
+const blogArticleRoutes = [
+  '/blog/things-to-do-in-galle-sri-lanka-ceylon-tea-experience',
+  '/blog/why-you-should-visit-the-ceylon-tea-experience-in-galle',
+]
 
 function serveBlogEntryHtml() {
   const rewrite = (request, _response, next) => {
@@ -13,8 +16,8 @@ function serveBlogEntryHtml() {
 
     if (pathname === '/blog') {
       request.url = '/blog/index.html'
-    } else if (pathname === blogArticleRoute) {
-      request.url = `${blogArticleRoute}/index.html`
+    } else if (blogArticleRoutes.includes(pathname)) {
+      request.url = `${pathname}/index.html`
     } else if (/^\/s\/[^/]+\/?$/.test(pathname)) {
       request.url = '/index.html'
     }
@@ -47,7 +50,8 @@ export default defineConfig({
       input: {
         main: `${rootPath}index.html`,
         blog: `${rootPath}blog/index.html`,
-        blogArticle: `${rootPath}blog/why-you-should-visit-the-ceylon-tea-experience-in-galle/index.html`,
+        blogArticleThingsToDo: `${rootPath}blog/things-to-do-in-galle-sri-lanka-ceylon-tea-experience/index.html`,
+        blogArticleVisitGalle: `${rootPath}blog/why-you-should-visit-the-ceylon-tea-experience-in-galle/index.html`,
       },
     },
   },
