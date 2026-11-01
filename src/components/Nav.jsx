@@ -1,11 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const PRODUCTION_BOOKING_URL = 'https://book.theceylonteaexperience.com/book'
-
-const configuredBookingUrl = import.meta.env.VITE_BOOKING_URL
-const bookingUrl =
-  (typeof configuredBookingUrl === 'string' ? configuredBookingUrl.trim() : '') ||
-  PRODUCTION_BOOKING_URL
+const bookingUrl = 'https://tcte-booking-engine.vercel.app/book'
 
 export default function Nav({ navigate, currentPage }) {
   const [menuOpen, setMenuOpen] = useState(false)
