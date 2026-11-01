@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react'
 
-const bookingUrl = import.meta.env.VITE_BOOKING_URL
+const PRODUCTION_BOOKING_URL = 'https://book.theceylonteaexperience.com/book'
+
+const configuredBookingUrl = import.meta.env.VITE_BOOKING_URL
+const bookingUrl =
+  (typeof configuredBookingUrl === 'string' ? configuredBookingUrl.trim() : '') ||
+  PRODUCTION_BOOKING_URL
 
 export default function Nav({ navigate, currentPage }) {
   const [menuOpen, setMenuOpen] = useState(false)
