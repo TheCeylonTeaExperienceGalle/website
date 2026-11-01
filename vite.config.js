@@ -18,6 +18,8 @@ function serveBlogEntryHtml() {
       request.url = '/blog/index.html'
     } else if (blogArticleRoutes.includes(pathname)) {
       request.url = `${pathname}/index.html`
+    } else if (pathname === '/partners') {
+      request.url = '/index.html'
     } else if (/^\/s\/[^/]+\/?$/.test(pathname)) {
       request.url = '/index.html'
     }

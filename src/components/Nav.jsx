@@ -1,13 +1,9 @@
 import { useEffect, useState } from 'react'
-import { WhatsAppInquiryModal } from './WhatsAppModal'
 
-export default function Nav({ navigate, currentPage, onBookNow }) {
+const bookingUrl = import.meta.env.VITE_BOOKING_URL
+
+export default function Nav({ navigate, currentPage }) {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [waModalOpen, setWaModalOpen] = useState(false)
-  const usesSharedBookingModal = typeof onBookNow === 'function'
-  const openBookingModal = usesSharedBookingModal
-    ? onBookNow
-    : () => setWaModalOpen(true)
 
   const links = [
     { label: 'Home', key: 'home' },
@@ -81,13 +77,16 @@ export default function Nav({ navigate, currentPage, onBookNow }) {
           ))}
         </ul>
 
-        {/* Prominent Book Now CTA */}
-        <button
-          onClick={openBookingModal}
-          className="hidden md:block bg-[#2D6A2D] text-white px-4 lg:px-6 py-3 text-xs font-bold uppercase tracking-wider hover:bg-[#1A3D1A] transition cursor-pointer rounded-sm shadow-md"
-        >
-          Book Now
-        </button>
+        <div className="hidden md:flex items-center gap-4">
+          {bookingUrl ? (
+            <a
+              href={bookingUrl}
+              className="bg-[#2D6A2D] text-white px-4 lg:px-6 py-3 text-xs font-bold uppercase tracking-wider hover:bg-[#1A3D1A] transition cursor-pointer rounded-sm shadow-md"
+            >
+              Book Now
+            </a>
+          ) : null}
+        </div>
 
         {/* Mobile Hamburger */}
         <button
@@ -127,24 +126,18 @@ export default function Nav({ navigate, currentPage, onBookNow }) {
               )
             ))}
             <div className="px-8 py-6">
-              {/* Mobile Book Now */}
-              <button
-                onClick={() => { openBookingModal(); setMenuOpen(false); }}
-                className="w-full bg-[#2D6A2D] text-white py-3 text-xs font-bold uppercase tracking-wider rounded-sm shadow-md"
-              >
-                Book Now
-              </button>
+              {bookingUrl ? (
+                <a
+                  href={bookingUrl}
+                  className="block w-full bg-[#2D6A2D] py-3 text-center text-xs font-bold uppercase tracking-wider text-white rounded-sm shadow-md"
+                >
+                  Book Now
+                </a>
+              ) : null}
             </div>
           </div>
         )}
       </nav>
-
-      {!usesSharedBookingModal && (
-        <WhatsAppInquiryModal
-          isOpen={waModalOpen}
-          onClose={() => setWaModalOpen(false)}
-        />
-      )}
     </>
   )
 }
